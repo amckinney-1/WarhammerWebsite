@@ -28,4 +28,13 @@ function GetAll($dbConn)
 
     return @mysqli_query($dbConn, $query);
 }
+
+function GetByFaction($dbConn, $faction)
+{
+
+    $query = "SELECT sl.GName, sl.ReleaseDate, sl.PlayTime
+   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Faction = " . $faction . " limit 1;";
+
+    return @mysqli_query($dbConn, $query);
+}
 ?>
