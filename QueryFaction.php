@@ -2,30 +2,37 @@
 include_once "MyHeader.php";
 ?>
 
-<?php
-$myVar = "food";
-?>
-
+    Sort by faction: &nbsp;
+<input list="Faction" id="Faction_ID"/>
+            <datalist id="Faction">
+                <option value="Drukhari">
+                <option value="Corsairs">
+            </datalist>
+<button name="a" onclick="myClickEvent()">Submit</button>
 <p id="A"></p>
-<p id="B"></p>
-
 <p id="jsonData"></p>
 
 <script>
+   var request = new XMLHttpRequest();
 
-    var request = new XMLHttpRequest();
-
-// Don't run until the page is loaded and ready
     $(document).ready(function () {
-    // alert("Ready");
+        // alert("Ready"); // Use for debugging
 
-    loadJson();
-});
+    });
+    // ---------------------------------
+    // Click event
+    function myClickEvent() {
+         // alert("my click"); // Use for debugging
+        // alert("data: " + document.getElementById("personId").value); // Use for debugging
 
-    // Call the microservice and get the data
-    function loadJson() {
-        request.open('GET', 'apiJsonQuery.php');
-        request.onload = loadComplete;
+        loadJson(document.getElementById("Faction").value);
+    }
+    // ---------------------------------
+            // Call the microservice and get the data
+    function loadJson(id) {
+        // alert("id: " + id); // Use for debugging
+        request.open('GET', 'apiSqlQuery.php?Cheese_ID=' + id);
+        request.onload=loadComplete;
         request.send();
     }
 
@@ -33,13 +40,14 @@ $myVar = "food";
     function loadComplete(evt) {
         var myResponse;
         var myData;
-        // create a table for display
         var myReturn = "<table><tr><td>Cheese Name &nbsp;  &nbsp; </td><td>Brand Name &nbsp;  &nbsp; </td><td>Cheese_ID &nbsp;  &nbsp; </td><td>Person Name &nbsp;  &nbsp; </td></tr>";
 
         myResponse = request.responseText;
-        //alert("A: " + myResponse); // Use for debug
+        //alert("A: " + myResponse); // Use for debugging
         //document.getElementById("A").innerHTML = myResponse; // Display the json for debugging
         myData = JSON.parse(myResponse);
+
+        // alert(myData);
 
         // Loop through each json record and create the HTML
         for (index in myData) {
@@ -51,11 +59,11 @@ $myVar = "food";
         }
         myReturn += "</table>";
         document.getElementById("jsonData").innerHTML = myReturn; // Display table
-}
+    }
+
 
 </script>
 
 <?php
 include_once "MyFooter.php";
 ?>
-
