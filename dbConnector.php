@@ -15,5 +15,17 @@ function ConnectionGet()
     return $dbConn;
 }
 
-function 
+function GetAll($dbConn)
+{
+    $query = "SELECT JSON_OBJECT(
+        'Unit_Name', wdb.UName,
+        'Faction', wdb.Faction,
+        'Key_Words', wdb.KeyWords,
+        'Cost', wdb.Cost,
+        'Base_Size', wdb.BaseSize,
+        'Max_Size', wdb.MaxSize) as Json1
+        FROM `warhammerdb`.`unitdatasheets` as wdb;";
+
+    return @mysqli_query($dbConn, $query);
+}
 ?>
