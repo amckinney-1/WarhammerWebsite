@@ -15,12 +15,15 @@ $myVar = "food";
 
     var request = new XMLHttpRequest();
 
+        request.open('GET', 'apiQuery.php');
+        request.onload = loadComplete;
+        request.send();
 // Don't run until the page is loaded and ready
-    $(document).ready(function () {
+    //$(document).ready(function () {
     // alert("Ready");
 
-    loadJson();
-});
+    //loadJson();
+//});
 
     // Call the microservice and get the data
     function loadJson() {
@@ -43,9 +46,9 @@ $myVar = "food";
 
         // Loop through each json record and create the HTML
         for (index in myData) {
-            myReturn += "<tr><td>" + myData[index].UName + "</td><td>" +
+            myReturn += "<tr><td><a href=\"template.php?Unit_Name=" + myData[index].Unit_Name + "\">" + myData[index].Unit_Name + "</a></td><td>" +
                 myData[index].Faction + "</td><td>" +
-                myData[index].KeyWords + "</td><td>" +
+                myData[index].Key_Words + "</td><td>" +
                 myData[index].Cost + "</td></tr>";
                 myData[index].BaseSize + "</td></tr>";
                 myData[index].MaxSize + "</td></tr>";
