@@ -2,7 +2,11 @@
 
 //constants
 DEFINE("DB_USER", "root");
+<<<<<<< Updated upstream
 DEFINE("DB_PSWD ", "admin");
+=======
+DEFINE("DB_PSWD", "admin");
+>>>>>>> Stashed changes
 DEFINE("DB_SERVER", "localhost:3306");
 DEFINE("DB_NAME", "warhammerdb");
 
