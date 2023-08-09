@@ -2,7 +2,7 @@
 
 //constants
 DEFINE("DB_USER", "root");
-DEFINE("DB_PSWD ", "");
+DEFINE("DB_PSWD ", "admin");
 DEFINE("DB_SERVER", "localhost:3306");
 DEFINE("DB_NAME", "warhammerdb");
 
