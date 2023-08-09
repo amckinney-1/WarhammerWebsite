@@ -1,0 +1,25 @@
+﻿td {
+    border: hidden;
+}
+
+html {
+    background-color: dimgrey;
+    text-align: center;
+}
+
+body {
+    border: 24px solid;
+    border-block-color: antiquewhite;
+    border-left-color:aqua;
+    border-right-color:aqua;
+
+    margin: 0;
+    color: darkmagenta;
+    font-size: 25px;
+    font-family:'Bauhaus 93';
+}
+
+h2 {
+    text-align: left;
+    padding-left: 30px;
+}

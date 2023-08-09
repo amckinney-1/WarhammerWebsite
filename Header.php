@@ -4,7 +4,7 @@
 session_start();
 ?>
 <head>
-    <link rel="stylesheet" href="myStyle.css" />
+    <link rel="stylesheet" href="myStyle2.css" />
 </head>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ session_start();
 <h1><?php echo $MyHeader ?></h1>
 
 <br />
-
+<h2>
 <?php
 include_once "Navigation.php";
 
@@ -23,5 +23,7 @@ if ($_SESSION["isAdmin"] == 1) {
     echo '  &nbsp; &nbsp;<a href="ManagePages.php">Manage Pages</a>';
 }
 ?>
+</h2>
+
 <br/>
 <br/>
