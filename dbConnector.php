@@ -37,4 +37,28 @@ function GetByFaction($dbConn, $faction)
 
     return @mysqli_query($dbConn, $query);
 }
+
+function CreateWhere($dbConn, $faction, $UnitName, $keyWords, $cost, $baseSize, $maxSize)
+{
+    $query = "INSERT INTO favorites(Faction, UName, KeyWords, Cost, BaseSize, MaxSize) VALUES('" . $faction . "', '" . $UnitName . "', '" . $keyWords . "'," . $cost . ", " . $baseSize . ", " . $maxSize . ");";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function UpdateWhere($dbConn, $Unit_ID, $faction, $Unit_Name, $keyWords, $cost, $baseSize, $maxSize)
+{
+    $query = "UPDATE `favorites`
+        SET UName = '" . $Unit_Name . "', Faction = '" . $faction . "', KeyWords = '" . $keyWords . "', Cost = " . $cost . ", BaseSize = " . $baseSize . ", MaxSize = " . $maxSize .
+        " WHERE Unit_ID = " . $Unit_ID . ";";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function DeleteWhere($dbConn, $Unit_ID)
+{
+
+    $query = "DELETE FROM favorites WHERE Unit_ID = " . $Unit_ID . ";";
+
+    return @mysqli_query($dbConn, $query);
+}
 ?>
