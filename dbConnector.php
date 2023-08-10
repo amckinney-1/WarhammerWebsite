@@ -38,6 +38,15 @@ function GetByFaction($dbConn, $faction)
     return @mysqli_query($dbConn, $query);
 }
 
+function GetByKeyword($dbConn, $keyword)
+{
+
+    $query = "SELECT sl.GName, sl.ReleaseDate, sl.PlayTime
+   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Keyword like \"%" . $keyword . "%\";";
+
+    return @mysqli_query($dbConn, $query);
+}
+
 function CreateWhere($dbConn, $faction, $UnitName, $keyWords, $cost, $baseSize, $maxSize)
 {
     $query = "INSERT INTO favorites(Faction, UName, KeyWords, Cost, BaseSize, MaxSize) VALUES('" . $faction . "', '" . $UnitName . "', '" . $keyWords . "'," . $cost . ", " . $baseSize . ", " . $maxSize . ");";
