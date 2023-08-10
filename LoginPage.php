@@ -2,6 +2,9 @@
 
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="myStyle.css">
+    </head>
     <form method="post" action="">
         <button type="submit" name="Admin">Admin Signin</button>
         <button type="submit" name="Normal">Regular Signin</button>
