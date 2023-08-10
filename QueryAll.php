@@ -37,7 +37,7 @@ $myVar = "food";
         var myResponse;
         var myData;
         // create a table for display
-        var myReturn = "<table><tr><td>Unit Name &nbsp;  &nbsp; </td><td>Faction &nbsp;  &nbsp; </td><td>Key Words &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td><td>Base Size &nbsp;  &nbsp; </td><td>Max Size &nbsp;  &nbsp; </td></tr>";
+        var myReturn = "<table><tr><td>Unit ID &nbsp;  &nbsp; </td><td>Unit Name &nbsp;  &nbsp; </td><td>Faction &nbsp;  &nbsp; </td><td>Key Words &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td><td>Base Size &nbsp;  &nbsp; </td><td>Max Size &nbsp;  &nbsp; </td></tr>";
 
         myResponse = request.responseText;
         //alert("A: " + myResponse); // Use for debug
@@ -46,12 +46,14 @@ $myVar = "food";
 
         // Loop through each json record and create the HTML
         for (index in myData) {
-            myReturn += "<tr><td><a href=\"template.php?Unit_Name=" + myData[index].Unit_Name + "\">" + myData[index].Unit_Name + "</a></td><td>" +
-                myData[index].Faction + "</td><td>" +
-                myData[index].Key_Words + "</td><td>" +
+            myReturn += "<tr><td>" + myData[index].Unit_ID
+                    + "</td><td><a href=\"template.php?Unit_Name=" + myData[index].Unit_Name
+                    + "&&Faction=" + myData[index].Faction
+                    + "&&Key_Words=" + myData[index].Key_Words
+                    + "&&Cost=" + myData[index].Cost
+                    + "&&Base_Size=" + myData[index].Base_Size
+                    + "&&Max_Size=" + myData[index].Max_Size + "\">" + myData[index].Unit_Name + "</a></td><td>" +
                 myData[index].Cost + "</td></tr>";
-                myData[index].BaseSize + "</td></tr>";
-                myData[index].MaxSize + "</td></tr>";
 
         }
         myReturn += "</table>";
