@@ -5,4 +5,4 @@ if (isset($_COOKIE["Login"]) == true) {
     echo "&nbsp; &nbsp;<a href=\"ManagePages.php\">Manage Pages</a>";
 }
 ?>
-&nbsp; &nbsp;<a href="LoginPage.php">Login</a>
+&nbsp; &nbsp;<a href="LoginPage.php">Logout</a>
