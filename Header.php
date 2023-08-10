@@ -35,13 +35,13 @@ if ($_SESSION["isAdmin"] == 1) {
     switch ($myStyle)
     {
     case 1:
-        echo '<link rel="stylesheet" type="text/css" href="/Stylesheets/myStyle.css">';
+        echo '<link rel="stylesheet" type="text/css" href="myStyle.css">';
         break;
     case 2:
-        echo '<link rel="stylesheet" type="text/css" href="/Stylesheets/myStyle2.css">';
+        echo '<link rel="stylesheet" type="text/css" href="myStyle2.css">';
         break;
     case 3:
-        echo '<link rel="stylesheet" type="text/css" href="/Stylesheets/myStyle3.css">';
+        echo '<link rel="stylesheet" type="text/css" href="myStyle3.css">';
         break;
     default:
         break;
