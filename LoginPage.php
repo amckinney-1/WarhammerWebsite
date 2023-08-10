@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["Admin"])){
         setcookie("Login", "1", time() + 3600, "/");
     }elseif(isset($_POST["Normal"])){
-        setcookie("login", "2", time() + 3600, "/");
+        setcookie("Login", null, time() + 3600, "/");
     }
         header("Location: index.php");
         exit();
