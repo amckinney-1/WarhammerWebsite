@@ -2,10 +2,17 @@
 // Is this finally working???
 //Yes
 session_start();
+
+if (isset($_COOKIE["Style"]) == false)
+{
+    $myStyle = 3;
+} else {
+    $myStyle = $_COOKIE["Style"];
+}
 ?>
 <head>
-    <link rel="stylesheet" href="myStyle3.css" />
 </head>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +30,26 @@ if ($_SESSION["isAdmin"] == 1) {
     echo '  &nbsp; &nbsp;<a href="ManagePages.php">Manage Pages</a>';
 }
 ?>
+<br/>
+<?php
+    switch ($myStyle)
+    {
+    case 1:
+        echo '<link rel="stylesheet" type="text/css" href="/Stylesheets/myStyle.css">';
+        break;
+    case 2:
+        echo '<link rel="stylesheet" type="text/css" href="/Stylesheets/myStyle2.css">';
+        break;
+    case 3:
+        echo '<link rel="stylesheet" type="text/css" href="/Stylesheets/myStyle3.css">';
+        break;
+    default:
+        break;
+    }
+?>
 </h2>
-<input type="button" name="Css1" value="Css1 Style Change" onclick="<link rel='stylesheet' href='myStyle1.css'"/>
-<input type="button" name="Css2" value="Css2 Style Change" onclick="<link rel='stylesheet' href='myStyle2.css'"/>
-<input type="button" name="Css3" value="Css3 Style Change" onclick="<link rel='stylesheet' href='myStyle3.css'"/>
+<?php
+
+?>
 <br/>
 <br/>
