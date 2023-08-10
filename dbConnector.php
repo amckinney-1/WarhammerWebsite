@@ -57,7 +57,7 @@ function GetByKeyword($dbConn, $keyword)
         'Cost', wdb.Cost,
         'Base_Size', wdb.BaseSize,
         'Max_Size', wdb.MaxSize) as Json1
-   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Keywords like \"%'" . $keyword . "'%\";";
+   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Keywords like \"%" . $keyword . "%\";";
 
     return @mysqli_query($dbConn, $query);
 }
