@@ -42,7 +42,7 @@ include_once "Header.php";
         var myResponse;
         var myData;
         // create a table for display
-        var myReturn = "<table><tr><td>Unit ID &nbsp;  &nbsp; </td><td>Unit Name &nbsp;  &nbsp; </td><td>Faction &nbsp;  &nbsp; </td><td>Key Words &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td><td>Base Size &nbsp;  &nbsp; </td><td>Max Size &nbsp;  &nbsp; </td></tr>";
+        var myReturn = "<table><tr><td>Unit Name &nbsp;  &nbsp; </td><td>Faction &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td></tr>";
 
         myResponse = request.responseText;
 
