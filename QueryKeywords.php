@@ -2,12 +2,8 @@
 include_once "Header.php";
 ?>
 
-    Sort by faction: &nbsp;
-<input list="Faction" id="Faction_ID"/>
-            <datalist id="Faction">
-                <option value="Drukhari">
-                <option value="Corsairs">
-            </datalist>
+    Sort by keyword: &nbsp;
+<input type="text" id="Keyword_ID" />
 <button name="a" onclick="myClickEvent()">Submit</button>
 <p id="A"></p>
 <p id="jsonData"></p>
@@ -16,10 +12,10 @@ include_once "Header.php";
    var request = new XMLHttpRequest();
     function myClickEvent() {
 
-        loadJson(document.getElementById("Faction_ID").value);
-
+        loadJson(document.getElementById("Keyword_ID").value);
+    }
     function loadJson(id) {
-        request.open('GET', 'apiQuery.php?Faction_Search=' + id);
+        request.open('GET', 'apiQuery.php?Keyword_Search=' + id);
         request.onload=loadComplete;
         request.send();
     }

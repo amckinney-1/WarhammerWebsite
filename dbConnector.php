@@ -18,6 +18,7 @@ function ConnectionGet()
 function GetAll($dbConn)
 {
     $query = "SELECT JSON_OBJECT(
+        'Unit_ID', wdb.Unit_ID,
         'Unit_Name', wdb.UName,
         'Faction', wdb.Faction,
         'Key_Words', wdb.KeyWords,
@@ -32,8 +33,15 @@ function GetAll($dbConn)
 function GetByFaction($dbConn, $faction)
 {
 
-    $query = "SELECT sl.GName, sl.ReleaseDate, sl.PlayTime
-   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Faction = " . $faction . " limit 1;";
+    $query = "SELECT JSON_OBJECT(
+        'Unit_ID', wdb.Unit_ID,
+        'Unit_Name', wdb.UName,
+        'Faction', wdb.Faction,
+        'Key_Words', wdb.KeyWords,
+        'Cost', wdb.Cost,
+        'Base_Size', wdb.BaseSize,
+        'Max_Size', wdb.MaxSize) as Json1
+   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Faction = '" . $faction . "';";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -41,22 +49,29 @@ function GetByFaction($dbConn, $faction)
 function GetByKeyword($dbConn, $keyword)
 {
 
-    $query = "SELECT sl.GName, sl.ReleaseDate, sl.PlayTime
-   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Keyword like \"%" . $keyword . "%\";";
+    $query = "SELECT JSON_OBJECT(
+        'Unit_ID', wdb.Unit_ID,
+        'Unit_Name', wdb.UName,
+        'Faction', wdb.Faction,
+        'Key_Words', wdb.KeyWords,
+        'Cost', wdb.Cost,
+        'Base_Size', wdb.BaseSize,
+        'Max_Size', wdb.MaxSize) as Json1
+   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Keywords like \"%'" . $keyword . "'%\";";
 
     return @mysqli_query($dbConn, $query);
 }
 
-function CreateWhere($dbConn, $faction, $UnitName, $keyWords, $cost, $baseSize, $maxSize)
+function CreateWhere($dbConn, $UnitName, $faction, $keyWords, $cost, $baseSize, $maxSize)
 {
-    $query = "INSERT INTO favorites(Faction, UName, KeyWords, Cost, BaseSize, MaxSize) VALUES('" . $faction . "', '" . $UnitName . "', '" . $keyWords . "'," . $cost . ", " . $baseSize . ", " . $maxSize . ");";
+    $query = "INSERT INTO `warhammerdb`.`unitdatasheets`(UName, Faction, KeyWords, Cost, BaseSize, MaxSize) VALUES('" . $UnitName . "', '" . $faction . "', '" . $keyWords . "'," . $cost . ", " . $baseSize . ", " . $maxSize . ");";
 
     return @mysqli_query($dbConn, $query);
 }
 
-function UpdateWhere($dbConn, $Unit_ID, $faction, $Unit_Name, $keyWords, $cost, $baseSize, $maxSize)
+function UpdateWhere($dbConn, $Unit_ID, $Unit_Name, $faction, $keyWords, $cost, $baseSize, $maxSize)
 {
-    $query = "UPDATE `favorites`
+    $query = "UPDATE `warhammerdb`.`unitdatasheets`
         SET UName = '" . $Unit_Name . "', Faction = '" . $faction . "', KeyWords = '" . $keyWords . "', Cost = " . $cost . ", BaseSize = " . $baseSize . ", MaxSize = " . $maxSize .
         " WHERE Unit_ID = " . $Unit_ID . ";";
 
@@ -66,7 +81,7 @@ function UpdateWhere($dbConn, $Unit_ID, $faction, $Unit_Name, $keyWords, $cost, 
 function DeleteWhere($dbConn, $Unit_ID)
 {
 
-    $query = "DELETE FROM favorites WHERE Unit_ID = " . $Unit_ID . ";";
+    $query = "DELETE FROM `warhammerdb`.`unitdatasheets` WHERE Unit_ID = " . $Unit_ID . ";";
 
     return @mysqli_query($dbConn, $query);
 }
