@@ -10,7 +10,7 @@ DEFINE("DB_NAME", "warhammerdb");
 function ConnectionGet()
 {
     $dbConn = @mysqli_connect(DB_SERVER, DB_USER, DB_PSWD, DB_NAME, 3306)
-    OR die('Failed to connect to MySQL ' . DB_SERVER . '::' . DB_NAME . ' : ' . mysqli_connect_error()); // Display messge and end PHP script
+        or die('Failed to connect to MySQL ' . DB_SERVER . '::' . DB_NAME . ' : ' . mysqli_connect_error()); // Display messge and end PHP script
 
     return $dbConn;
 }
@@ -86,7 +86,7 @@ function DeleteWhere($dbConn, $Unit_ID)
     return @mysqli_query($dbConn, $query);
 }
 
-function CheckLogin($dbConn)
+/*function CheckLogin($dbConn)
 {
     if ($statement = $dbConn->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
         // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
@@ -119,5 +119,5 @@ function CheckLogin($dbConn)
 
         $statement->close();
     }
-}
+}*/
 ?>

@@ -5,7 +5,6 @@ $TColour = '#0';
 $HColour = '#0';
 ?>
 <html>
-<>
     <form method="post" action="">
         <button type="submit" name="Basic">Basic</button>
         <button type="submit" name="GreenNecron">GreenSharp</button>
