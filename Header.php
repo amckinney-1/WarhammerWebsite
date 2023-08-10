@@ -4,7 +4,7 @@
 session_start();
 ?>
 <head>
-    <link rel="stylesheet" href="myStyle2.css" />
+    <link rel="stylesheet" href="myStyle3.css" />
 </head>
 
 <!DOCTYPE html>
