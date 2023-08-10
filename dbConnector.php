@@ -70,4 +70,39 @@ function DeleteWhere($dbConn, $Unit_ID)
 
     return @mysqli_query($dbConn, $query);
 }
+
+function CheckLogin($dbConn)
+{
+    if ($statement = $dbConn->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+        // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
+        $statement->bind_param('s', $_POST['username']);
+        $statement->execute();
+        // Store the result so we can check if the account exists in the database.
+        $statement->store_result();
+
+        if ($statement->num_rows > 0) {
+            $statement->bind_result($id, $password);
+            $statement->fetch();
+            // Account exists, now we verify the password.
+            // Note: remember to use password_hash in your registration file to store the hashed passwords.
+            if (password_verify($_POST['password'], $password)) {
+                // Verification success! User has logged-in!
+                // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
+                session_regenerate_id();
+                $_SESSION['loggedin'] = TRUE;
+                $_SESSION['name'] = $_POST['username'];
+                $_SESSION['id'] = $id;
+                header('Location: index.php');
+            } else {
+                // Incorrect password
+                echo 'Incorrect username and/or password!';
+            }
+        } else {
+            // Incorrect username
+            echo 'Incorrect username and/or password!';
+        }
+
+        $statement->close();
+    }
+}
 ?>
