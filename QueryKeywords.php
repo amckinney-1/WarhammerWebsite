@@ -14,6 +14,7 @@ include_once "Header.php";
 
         loadJson(document.getElementById("Keyword_ID").value);
     }
+
     function loadJson(id) {
         request.open('GET', 'apiQuery.php?Keyword_Search=' + id);
         request.onload=loadComplete;

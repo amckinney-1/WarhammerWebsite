@@ -17,6 +17,7 @@ include_once "Header.php";
     function myClickEvent() {
 
         loadJson(document.getElementById("Faction_ID").value);
+    }
 
     function loadJson(id) {
         request.open('GET', 'apiQuery.php?Faction_Search=' + id);
