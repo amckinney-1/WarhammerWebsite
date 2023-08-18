@@ -7,6 +7,7 @@ include_once "Header.php";
             <datalist id="Faction">
                 <option value="Drukhari">
                 <option value="Corsairs">
+                <option value="Adeptus Mechanicus">
             </datalist>
 <button name="a" onclick="myClickEvent()">Submit</button>
 <p id="A"></p>
