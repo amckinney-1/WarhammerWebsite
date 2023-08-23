@@ -4,20 +4,34 @@
 
 html {
     background-color: dimgrey;
-    text-align: center;
+}
+
+h2{
+    text-align: left;
+    text-emphasis:triangle;
+    border: 10px double;
+    border-left-color: lightyellow;
+    border-right-color: lightyellow;
 }
 
 body {
+    text-align: center;
     border: 24px solid;
     border-block-color: darkgoldenrod;
     border-left-color:gold;
     border-right-color:gold;
 
-    margin: 0;
+    margin: 0px;
     color: yellow;
     background-color:black;
     font-size: 25px;
     font-family:Rockwell;
+}
+
+
+
+a {
+    color: palegoldenrod;
 }
 
 h2 {
