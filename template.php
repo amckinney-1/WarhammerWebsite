@@ -20,4 +20,6 @@ if (array_key_exists("Base_Size", $_GET) == TRUE) {
 if (array_key_exists("Max_Size", $_GET) == TRUE) {
     echo "<div>" . $_GET["Max_Size"] . "</div>";
 }
+
+include_once "Footer.php";
 ?>

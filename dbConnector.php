@@ -86,6 +86,43 @@ function DeleteWhere($dbConn, $Unit_ID)
     return @mysqli_query($dbConn, $query);
 }
 
+function GetAllUsers($dbConn)
+{
+    $query = "SELECT JSON_OBJECT(
+        'User_ID', wdb.id,
+        'Username', wdb.username,
+        'Password', wdb.password,
+        'Email', wdb.email,
+        'IsAdmin', wdb.isAdmin) as Json1
+        FROM `warhammerdb`.`users` as wdb;";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function CreateUserWhere($dbConn, $User, $Password, $Email, $isAdmin)
+{
+    $query = "INSERT INTO `warhammerdb`.`users`(username, password, email, isAdmin) VALUES('" . $User . "', '" . $Password . "', '" . $Email . "'," . $isAdmin . ");";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function UpdateUserWhere($dbConn, $User_ID, $User, $Password, $Email, $isAdmin)
+{
+    $query = "UPDATE `warhammerdb`.`users`
+        SET username = '" . $User . "', password = '" . $Password . "', email = '" . $Email . "', isAdmin = " . $isAdmin .
+        " WHERE id = " . $User_ID . ";";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function DeleteUserWhere($dbConn, $User_ID)
+{
+
+    $query = "DELETE FROM `warhammerdb`.`users` WHERE id = " . $User_ID . ";";
+
+    return @mysqli_query($dbConn, $query);
+}
+
 /*function CheckLogin($dbConn)
 {
     if ($statement = $dbConn->prepare('SELECT id, password FROM accounts WHERE username = ?')) {

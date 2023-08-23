@@ -2,8 +2,8 @@
 include_once "Header.php";
 ?>
 
-    Delete a datasheet: &nbsp;
-<input type="text" id="Unit_ID" value="ID" />
+    Delete a User: &nbsp;
+<input type="text" id="User_ID" value="ID" />
 <button name="a" onclick="myClickEvent()">Submit</button>
 <p id="A"></p>
 <p id="jsonData"></p>
@@ -21,37 +21,35 @@ include_once "Header.php";
          // alert("my click"); // Use for debugging
         // alert("data: " + document.getElementById("personId").value); // Use for debugging
 
-        loadJson(document.getElementById("Unit_ID").value);
+        loadJson(document.getElementById("User_ID").value);
     }
     // ---------------------------------
             // Call the microservice and get the data
     function loadJson(id) {
         // alert("id: " + id); // Use for debugging
-        request.open('GET', 'apiQuery.php?Delete_ID=' + id);
+        request.open('GET', 'apiUserQuery.php?Delete_ID=' + id);
         request.onload=loadComplete;
         request.send();
     }
 
     // Run when the data has been loaded
-    function loadComplete(evt) {
+        function loadComplete(evt) {
         var myResponse;
         var myData;
         // create a table for display
-        var myReturn = "<table><tr><td>Unit ID &nbsp;  &nbsp; </td><td>Unit Name &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td></tr>";
+        var myReturn = "<table><tr><td>User ID &nbsp;  &nbsp; </td><td>Username &nbsp;  &nbsp; </td><td>isAdmin &nbsp;  &nbsp; </td></tr>";
 
         myResponse = request.responseText;
 
         myData = JSON.parse(myResponse);
 
         for (index in myData) {
-            myReturn += "<tr><td>" + myData[index].Unit_ID
-                    + "</td><td><a href=\"template.php?Unit_Name=" + myData[index].Unit_Name
-                    + "&&Faction=" + myData[index].Faction
-                    + "&&Key_Words=" + myData[index].Key_Words
-                    + "&&Cost=" + myData[index].Cost
-                    + "&&Base_Size=" + myData[index].Base_Size
-                    + "&&Max_Size=" + myData[index].Max_Size + "\">" + myData[index].Unit_Name + "</a></td><td>" +
-                myData[index].Cost + "</td></tr>";
+            myReturn += "<tr><td>" + myData[index].User_ID
+                    + "</td><td><a href=\"userTemplate.php?username=" + myData[index].Username
+                    + "&&password=" + myData[index].Password
+                    + "&&email=" + myData[index].Email
+                    + "&&isAdmin=" + myData[index].IsAdmin+ "\">" + myData[index].Username + "</a></td><td>" +
+                myData[index].IsAdmin + "</td></tr>";
 
         }
         myReturn += "</table>";
