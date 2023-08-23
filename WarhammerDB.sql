@@ -9,7 +9,8 @@ create table if not exists UnitDatasheets(
  KeyWords VARCHAR(300),
  Cost int,
  BaseSize int,
- MaxSize int
+ MaxSize int,
+ IsActive bool DEFAULT true
 );
 
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Drazhar','Drukhari','Epic Hero, Drazhar, Aeldari, Infantry, Character',105,1,1);
@@ -59,7 +60,8 @@ CREATE TABLE IF NOT EXISTS users (
       username varchar(50) NOT NULL,
       password varchar(100) NOT NULL,
       email varchar(100) NOT NULL,
-      isAdmin bool NOT NULL
+      isAdmin bool NOT NULL,
+	  IsActive bool DEFAULT true
 );
 
 INSERT INTO users (username,password,email,isAdmin) VALUES('admin','admin','admin@email.com',true);
