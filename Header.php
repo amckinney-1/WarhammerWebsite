@@ -1,6 +1,5 @@
 <?php
-// Is this finally working???
-//Yes
+//a simple header
 session_start();
 
 if (isset($_COOKIE["Style"]) == false)

@@ -1,4 +1,5 @@
 <?php
+//Contacts page, displays team and our names
 include_once "Header.php"
 ?>
 <html>

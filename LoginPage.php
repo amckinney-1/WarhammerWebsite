@@ -12,7 +12,7 @@ include_once "dbConnector.php";
         var request = new XMLHttpRequest();
         var isAdmin;
     function OnClickSubmit() {
-
+        //Searches to login a user if they have submitted the correct username and password
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
 
@@ -29,8 +29,7 @@ include_once "dbConnector.php";
 
         console.log(request.responseText);
         myResponse = request.responseText;
-        //alert("A: " + myResponse); // Use for debug
-        //document.getElementById("A").innerHTML = myResponse; // Display the json for debugging
+
         myData = JSON.parse(myResponse);
         if (myResponse == "Failed") {
             alert("Login failed");
@@ -47,11 +46,6 @@ include_once "dbConnector.php";
             window.location.href = "index.php";
         }
         console.log(myData);
-        // Loop through each json record and create the HTML
-        
-
-        /*myReturn += "</table>";
-        document.getElementById("jsonData").innerHTML = myReturn; // Display table*/
         }
         function test() {
             console.log(request.responseText);

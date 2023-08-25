@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//Lets the user view all datasheets
 ?>
 
 <?php
@@ -18,14 +19,7 @@ $myVar = "food";
     request.open('GET', 'apiQuery.php');
     request.onload = loadComplete;
     request.send();
-    // Don't run until the page is loaded and ready
-    //$(document).ready(function () {
-    // alert("Ready");
 
-    //loadJson();
-    //});
-
-    // Call the microservice and get the data
     function loadJson() {
         request.open('GET', 'apiQuery.php?Get_All=TRUE');
         request.onload = loadComplete;

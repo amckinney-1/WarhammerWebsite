@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//templates a user based on inputted parameters
 
 if (array_key_exists("username", $_GET) == TRUE) {
     echo "<h1>" . $_GET["username"] . "</h1>";

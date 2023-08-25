@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//Responsible for Creating datasheets to add to the datasheets table
 ?>
 
     Create a datasheet: &nbsp;
@@ -17,21 +18,17 @@ include_once "Header.php";
     var request = new XMLHttpRequest();
 
     $(document).ready(function () {
-        // alert("Ready"); // Use for debugging
-
+        //Currently Unused document.ready function
     });
-    // ---------------------------------
+
     // Click event
     function myClickEvent() {
-         // alert("my click"); // Use for debugging
-        // alert("data: " + document.getElementById("personId").value); // Use for debugging
-
+        //Loads JSON on button click
         loadJson(document.getElementById("Unit_Name").value, document.getElementById("Faction").value, document.getElementById("Keywords").value, document.getElementById("Cost").value, document.getElementById("BaseSize").value, document.getElementById("MaxSize").value);
     }
-    // ---------------------------------
-            // Call the microservice and get the data
+
     function loadJson(name, faction, keywords, cost, bsize, msize) {
-        // alert("id: " + id); // Use for debugging
+        //Calls the apiQuery file to create a datasheet
         request.open('GET', 'apiQuery.php?Create_Name=' + name + '&Create_Faction=' + faction + '&Create_Keywords=' + keywords + '&Create_Cost=' + cost + '&Create_BaseSize=' + bsize + '&Create_MaxSize=' + msize);
         request.onload=loadComplete;
         request.send();

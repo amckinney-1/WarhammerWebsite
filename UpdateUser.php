@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//Responsible for Updating users to add to the users table
 ?>
 
     Update a datasheet: &nbsp;
@@ -16,21 +17,16 @@ include_once "Header.php";
     var request = new XMLHttpRequest();
 
     $(document).ready(function () {
-        // alert("Ready"); // Use for debugging
-
+        //Currently Unused document.ready function
     });
-    // ---------------------------------
     // Click event
     function myClickEvent() {
-         // alert("my click"); // Use for debugging
-        // alert("data: " + document.getElementById("personId").value); // Use for debugging
-
+        //Loads JSON on button click
         loadJson(document.getElementById("User_ID").value, document.getElementById("User").value, document.getElementById("Password").value, document.getElementById("Email").value, document.getElementById("isAdmin").value);
     }
-    // ---------------------------------
-            // Call the microservice and get the data
+    
     function loadJson(id, user, password, email, isadmin) {
-        // alert("id: " + id); // Use for debugging
+        //Calls the apiUserQuery file to update a user
         request.open('GET', 'apiUserQuery.php?Update_ID=' + id + '&Update_Name=' + user + '&Update_Password=' + password + '&Update_Email=' + email + '&Update_isAdmin=' + isadmin);
         request.onload=loadComplete;
         request.send();

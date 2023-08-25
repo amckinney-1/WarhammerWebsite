@@ -6,7 +6,7 @@ DEFINE("DB_PSWD", "admin");
 DEFINE("DB_SERVER", "localhost:3306");
 DEFINE("DB_NAME", "warhammerdb");
 
-//get things
+//get Connection
 function ConnectionGet()
 {
     $dbConn = @mysqli_connect(DB_SERVER, DB_USER, DB_PSWD, DB_NAME, 3306)
@@ -15,6 +15,7 @@ function ConnectionGet()
     return $dbConn;
 }
 
+//Gets whole table
 function GetAll($dbConn)
 {
     $query = "SELECT JSON_OBJECT(
@@ -30,6 +31,7 @@ function GetAll($dbConn)
     return @mysqli_query($dbConn, $query);
 }
 
+//Searchs using a faction name
 function GetByFaction($dbConn, $faction)
 {
 
@@ -46,6 +48,7 @@ function GetByFaction($dbConn, $faction)
     return @mysqli_query($dbConn, $query);
 }
 
+//Searches using a Keyword
 function GetByKeyword($dbConn, $keyword)
 {
 
@@ -62,6 +65,7 @@ function GetByKeyword($dbConn, $keyword)
     return @mysqli_query($dbConn, $query);
 }
 
+//Creates a datasheet using the values determined by the parameters
 function CreateWhere($dbConn, $UnitName, $faction, $keyWords, $cost, $baseSize, $maxSize)
 {
     $query = "INSERT INTO `warhammerdb`.`unitdatasheets`(UName, Faction, KeyWords, Cost, BaseSize, MaxSize) VALUES('" . $UnitName . "', '" . $faction . "', '" . $keyWords . "'," . $cost . ", " . $baseSize . ", " . $maxSize . ");";
@@ -69,6 +73,7 @@ function CreateWhere($dbConn, $UnitName, $faction, $keyWords, $cost, $baseSize, 
     return @mysqli_query($dbConn, $query);
 }
 
+//Updates a datasheet at the chosen index using the values determined by the parameters
 function UpdateWhere($dbConn, $Unit_ID, $Unit_Name, $faction, $keyWords, $cost, $baseSize, $maxSize)
 {
     $query = "UPDATE `warhammerdb`.`unitdatasheets`
@@ -78,6 +83,7 @@ function UpdateWhere($dbConn, $Unit_ID, $Unit_Name, $faction, $keyWords, $cost, 
     return @mysqli_query($dbConn, $query);
 }
 
+//Deletes a datasheet at the chosen index
 function DeleteWhere($dbConn, $Unit_ID)
 {
 
@@ -86,7 +92,7 @@ function DeleteWhere($dbConn, $Unit_ID)
     return @mysqli_query($dbConn, $query);
 }
 
-//<<<<<<< Updated upstream
+//Gets all rows from the Users table
 function GetAllUsers($dbConn)
 {
     $query = "SELECT JSON_OBJECT(
@@ -100,6 +106,7 @@ function GetAllUsers($dbConn)
     return @mysqli_query($dbConn, $query);
 }
 
+//Creates a user using the values determined by the parameters
 function CreateUserWhere($dbConn, $User, $Password, $Email, $isAdmin)
 {
     $query = "INSERT INTO `warhammerdb`.`users`(username, password, email, isAdmin) VALUES('" . $User . "', '" . $Password . "', '" . $Email . "'," . $isAdmin . ");";
@@ -107,6 +114,7 @@ function CreateUserWhere($dbConn, $User, $Password, $Email, $isAdmin)
     return @mysqli_query($dbConn, $query);
 }
 
+//Updates a user at the chosen index using the values determined by the parameters
 function UpdateUserWhere($dbConn, $User_ID, $User, $Password, $Email, $isAdmin)
 {
     $query = "UPDATE `warhammerdb`.`users`
@@ -116,6 +124,7 @@ function UpdateUserWhere($dbConn, $User_ID, $User, $Password, $Email, $isAdmin)
     return @mysqli_query($dbConn, $query);
 }
 
+//Deletes a user at the chosen index
 function DeleteUserWhere($dbConn, $User_ID)
 {
 
@@ -129,6 +138,7 @@ function CheckLogin($dbConn)
     
 }
 
+//Gets a User determined by a username and password
 function GetByUsername($dbConn, $username, $password){
 
     $query = "SELECT JSON_OBJECT(

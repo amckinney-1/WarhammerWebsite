@@ -1,6 +1,6 @@
 <?php
 include_once "Header.php";
-
+//If a user is an admin, they have access to these pages which host the CRUD for the project
 ?>
 <a href="CreateDatasheet.php">Create_Datasheet</a>&nbsp; &nbsp;
 <a href="UpdateDatasheet.php">Update_Datasheet</a>&nbsp; &nbsp;

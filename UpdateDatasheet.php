@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//Responsible for Updating datasheets to add to the datasheets table
 ?>
 
     Update a datasheet: &nbsp;
@@ -18,21 +19,16 @@ include_once "Header.php";
     var request = new XMLHttpRequest();
 
     $(document).ready(function () {
-        // alert("Ready"); // Use for debugging
-
+        //Currently Unused document.ready function
     });
-    // ---------------------------------
     // Click event
     function myClickEvent() {
-         // alert("my click"); // Use for debugging
-        // alert("data: " + document.getElementById("personId").value); // Use for debugging
-
+        //Loads JSON on button click
         loadJson(document.getElementById("Unit_ID").value, document.getElementById("Unit_Name").value, document.getElementById("Faction").value, document.getElementById("Keywords").value, document.getElementById("Cost").value, document.getElementById("BaseSize").value, document.getElementById("MaxSize").value);
     }
-    // ---------------------------------
-            // Call the microservice and get the data
+    
     function loadJson(id, name, faction, keywords, cost, bsize, msize) {
-        // alert("id: " + id); // Use for debugging
+        //Calls the apiQuery file to update a datasheet
         request.open('GET', 'apiQuery.php?Update_ID=' + id + '&Update_Name=' + name + '&Update_Faction=' + faction + '&Update_Keywords=' + keywords + '&Update_Cost=' + cost + '&Update_BaseSize=' + bsize + '&Update_MaxSize=' + msize);
         request.onload=loadComplete;
         request.send();

@@ -3,7 +3,6 @@ include_once "dbConnector.php";
 
 header('Content-Type: application/json');
 
-// Get All records
 // Get the db connection
 $myDbConn = ConnectionGet();
 
@@ -11,6 +10,7 @@ $myJSON = null;
 $row = null;
 $myGet = "";
 
+//Creates a User
 if (array_key_exists("Create_Name", $_GET) == TRUE) {
     $myGet = $_GET["Create_Name"];
     $param1 = $_GET["Create_Password"];
@@ -20,6 +20,7 @@ if (array_key_exists("Create_Name", $_GET) == TRUE) {
     $dataSet = CreateUserWhere($myDbConn, $myGet, $param1, $param2, $param3);
 }
 
+//Updates a User
 if (array_key_exists("Update_ID", $_GET) == TRUE) {
     $myGet = $_GET["Update_ID"];
     $param1 = $_GET["Update_Name"];
@@ -30,15 +31,17 @@ if (array_key_exists("Update_ID", $_GET) == TRUE) {
     $dataSet = UpdateUserWhere($myDbConn, $myGet, $param1, $param2, $param3, $param4);
 }
 
+//Deletes a User
 if (array_key_exists("Delete_ID", $_GET) == TRUE) {
     $myGet = $_GET["Delete_ID"];
 
     $dataSet = DeleteUserWhere($myDbConn, $myGet);
 }
 
+//Returns the table of User's so the admin can confirm any changes made
 $myJsonResult = GetAllUsers($myDbConn);
 
-//
+//Formats results into JSON
 if ($myJsonResult) {
     // loop through each record and format the json (apply any needed business logic)
     while ($row = mysqli_fetch_array($myJsonResult)) {

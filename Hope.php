@@ -3,6 +3,7 @@ include "Header.php";
 $BColour = '#0';
 $TColour = '#0';
 $HColour = '#0';
+//Responsible for changing the theme of the website
 ?>
 <html>
     <form method="post" action="">

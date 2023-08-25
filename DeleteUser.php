@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//Responsible for Creating users to add to the users table
 ?>
 
     Delete a User: &nbsp;
@@ -12,21 +13,16 @@ include_once "Header.php";
     var request = new XMLHttpRequest();
 
     $(document).ready(function () {
-        // alert("Ready"); // Use for debugging
-
+        //Currently Unused document.ready function
     });
-    // ---------------------------------
     // Click event
     function myClickEvent() {
-         // alert("my click"); // Use for debugging
-        // alert("data: " + document.getElementById("personId").value); // Use for debugging
-
+         //Loads JSON on button click
         loadJson(document.getElementById("User_ID").value);
     }
-    // ---------------------------------
-            // Call the microservice and get the data
+    
     function loadJson(id) {
-        // alert("id: " + id); // Use for debugging
+        //Calls the apiUserQuery file to delete a user
         request.open('GET', 'apiUserQuery.php?Delete_ID=' + id);
         request.onload=loadComplete;
         request.send();

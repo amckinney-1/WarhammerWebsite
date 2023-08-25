@@ -1,5 +1,6 @@
 <?php
 include_once "Header.php";
+//Responsible for searching datasheets by faction
 ?>
 
     Sort by faction: &nbsp;
@@ -14,9 +15,10 @@ include_once "Header.php";
 <p id="jsonData"></p>
 
 <script>
-   var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
+    //Click event
     function myClickEvent() {
-
+        //Loads JSON on button click
         loadJson(document.getElementById("Faction_ID").value);
     }
 
