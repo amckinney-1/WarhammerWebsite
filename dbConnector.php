@@ -86,7 +86,7 @@ function DeleteWhere($dbConn, $Unit_ID)
     return @mysqli_query($dbConn, $query);
 }
 
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 function GetAllUsers($dbConn)
 {
     $query = "SELECT JSON_OBJECT(
@@ -124,10 +124,9 @@ function DeleteUserWhere($dbConn, $User_ID)
     return @mysqli_query($dbConn, $query);
 }
 
-/*function CheckLogin($dbConn)
-=======
+function CheckLogin($dbConn)
+
 function GetByUsername($dbConn, $username, $password)
->>>>>>> Stashed changes
 {
 
     $query = "SELECT JSON_OBJECT(
