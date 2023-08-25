@@ -10,7 +10,6 @@ $myDbConn = ConnectionGet();
 $myJSON = null;
 $row = null;
 $myGet = "";
-$userArray = null;
 
 if (array_key_exists("Create_Name", $_GET) == TRUE) {
     $myGet = $_GET["Create_Name"];
@@ -41,9 +40,7 @@ if (array_key_exists("Delete_ID", $_GET) == TRUE) {
     $dataSet = DeleteWhere($myDbConn, $myGet);
 }
 
-if (array_key_exists("Get_All", $_GET) == TRUE) {
-    $myJsonResult = GetAll($myDbConn);
-}
+$myJsonResult = GetAll($myDbConn);
 
 if (array_key_exists("Faction_Search", $_GET) == TRUE) {
     // Get the db connection
@@ -61,42 +58,20 @@ if (array_key_exists("Keyword_Search", $_GET) == TRUE) {
     $myJsonResult = GetByKeyword($myDbConn, $myGet);
 }
 
-if (array_key_exists("Username_Search", $_GET) && array_key_exists("Username", $_GET) && array_key_exists("Password", $_GET)) {
-    $username = $_GET["Username"];
-    $password = $_GET["Password"];
-    $myJsonResult = GetByUsername($myDbConn, $username, $password);
-    //if ($myJsonResult) {
-    //    while ($row = mysqli_fetch_array($myJsonResult)) {
-    //        $rowArray[] = json_decode($row[0]);
-    //    }
 
-    //    $myJSON = json_encode($rowArray);
-
-
-    //} else {
-    //    $myJSON = "Login Failed";
-    //}
-    //mysqli_close($myDbConn);
-}
-
-if (array_key_exists('Login_Success', $_GET) && array_key_exists('Is_Admin', $_GET)) {
-    $IsAdmin = $_GET["IsAdmin"];
-
-    setcookie("Login", $IsAdmin, time() + (86400 * 2), "/");
-}
-
+//
 if ($myJsonResult) {
+    // loop through each record and format the json (apply any needed business logic)
     while ($row = mysqli_fetch_array($myJsonResult)) {
         $rowArray[] = json_decode($row[0]);
     }
 
+    // Format array as json
     $myJSON = json_encode($rowArray);
-
-
-} else {
-    $myJSON = "Failed";
 }
+
 mysqli_close($myDbConn);
-echo $myJSON;
+
+echo $myJSON; //return data
 
 ?>
