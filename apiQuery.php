@@ -43,9 +43,8 @@ if (array_key_exists("Delete_ID", $_GET) == TRUE) {
     $dataSet = DeleteWhere($myDbConn, $myGet);
 }
 
-if (array_key_exists("Get_All", $_GET) == TRUE) {
     $myJsonResult = GetAll($myDbConn);
-}
+
 
 if (array_key_exists("Faction_Search", $_GET) == TRUE) {
     // Get the db connection
