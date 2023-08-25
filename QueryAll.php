@@ -15,19 +15,19 @@ $myVar = "food";
 
     var request = new XMLHttpRequest();
 
-        request.open('GET', 'apiQuery.php');
-        request.onload = loadComplete;
-        request.send();
-// Don't run until the page is loaded and ready
+    request.open('GET', 'apiQuery.php');
+    request.onload = loadComplete;
+    request.send();
+    // Don't run until the page is loaded and ready
     //$(document).ready(function () {
     // alert("Ready");
 
     //loadJson();
-//});
+    //});
 
     // Call the microservice and get the data
     function loadJson() {
-        request.open('GET', 'apiQuery.php');
+        request.open('GET', 'apiQuery.php?Get_All=TRUE');
         request.onload = loadComplete;
         request.send();
     }
@@ -37,7 +37,7 @@ $myVar = "food";
         var myResponse;
         var myData;
         // create a table for display
-            var myReturn = "<table><tr><td>Unit ID &nbsp;  &nbsp; </td><td>Unit Name &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td></tr>";
+            var myReturn = "<table><tr><td>Unit Name &nbsp;  &nbsp; </td><td>Faction &nbsp;  &nbsp; </td><td>Base Cost &nbsp;  &nbsp; </td></tr>";
 
         myResponse = request.responseText;
         //alert("A: " + myResponse); // Use for debug
@@ -47,18 +47,20 @@ $myVar = "food";
         // Loop through each json record and create the HTML
         for (index in myData) {
             myReturn += "<tr><td>" + myData[index].Unit_ID
-                    + "</td><td><a href=\"template.php?Unit_Name=" + myData[index].Unit_Name
-                    + "&&Faction=" + myData[index].Faction
-                    + "&&Key_Words=" + myData[index].Key_Words
-                    + "&&Cost=" + myData[index].Cost
-                    + "&&Base_Size=" + myData[index].Base_Size
-                    + "&&Max_Size=" + myData[index].Max_Size + "\">" + myData[index].Unit_Name + "</a></td><td>" +
+                + "</td><td><a href=\"template.php?Unit_Name=" + myData[index].Unit_Name
+                + "&&Faction=" + myData[index].Faction
+                + "&&Key_Words=" + myData[index].Key_Words
+                + "&&Cost=" + myData[index].Cost
+                + "&&Base_Size=" + myData[index].Base_Size
+                + "&&Max_Size=" + myData[index].Max_Size + "\">" + myData[index].Unit_Name + "</a></td><td>" +
                 myData[index].Cost + "</td></tr>";
 
         }
         myReturn += "</table>";
         document.getElementById("jsonData").innerHTML = myReturn; // Display table
-}
+    }
+
+    
 
 </script>
 
