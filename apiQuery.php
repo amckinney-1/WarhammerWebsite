@@ -65,6 +65,7 @@ if (array_key_exists("Username_Search", $_GET) && array_key_exists("Username", $
     $username = $_GET["Username"];
     $password = $_GET["Password"];
     $myJsonResult = GetByUsername($myDbConn, $username, $password);
+
     //if ($myJsonResult) {
     //    while ($row = mysqli_fetch_array($myJsonResult)) {
     //        $rowArray[] = json_decode($row[0]);
@@ -79,10 +80,19 @@ if (array_key_exists("Username_Search", $_GET) && array_key_exists("Username", $
     //mysqli_close($myDbConn);
 }
 
-if (array_key_exists('Login_Success', $_GET) && array_key_exists('Is_Admin', $_GET)) {
+myvar1 = array_key_exists('Login_Success', $_GET);
+myvar2 = array_key_exists('IsAdmin', $_GET);
+
+if (array_key_exists('Login_Success', $_GET) && array_key_exists('IsAdmin', $_GET)) {
     $IsAdmin = $_GET["IsAdmin"];
 
-    setcookie("Login", $IsAdmin, time() + (86400 * 2), "/");
+    if (isset($_SESSION["IsAdmin"]) == 1) {
+        $admin = $_SESSION["IsAdmin"];
+        echo ('<div>' . $admin . '</div>' );
+    } else {
+        $_SESSION["IsAdmin"] = $admin;
+        echo ('<div>' . $admin . '</div>');
+    }
 }
 
 if ($myJsonResult) {

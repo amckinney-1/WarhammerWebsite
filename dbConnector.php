@@ -125,9 +125,11 @@ function DeleteUserWhere($dbConn, $User_ID)
 }
 
 function CheckLogin($dbConn)
-
-function GetByUsername($dbConn, $username, $password)
 {
+    
+}
+
+function GetByUsername($dbConn, $username, $password){
 
     $query = "SELECT JSON_OBJECT(
         'Username', u.username,

@@ -26,9 +26,7 @@ if (isset($_COOKIE["Style"]) == false)
 <?php
 include_once "Navigation.php";
 
-if ($_SESSION["isAdmin"] == 1) {
-    echo '  &nbsp; &nbsp;<a href="ManagePages.php">Manage Pages</a>';
-}
+
 ?>
 <br/>
 <?php
