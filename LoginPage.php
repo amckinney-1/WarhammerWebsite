@@ -44,7 +44,7 @@ include_once "dbConnector.php";
 
             console.log(myData[0].IsAdmin);
 
-            //window.location.href = "index.php";
+            window.location.href = "index.php";
         }
         console.log(myData);
         // Loop through each json record and create the HTML

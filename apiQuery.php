@@ -12,6 +12,8 @@ $row = null;
 $myGet = "";
 $userArray = null;
 
+session_start();
+
 if (array_key_exists("Create_Name", $_GET) == TRUE) {
     $myGet = $_GET["Create_Name"];
     $param1 = $_GET["Create_Faction"];
@@ -80,19 +82,13 @@ if (array_key_exists("Username_Search", $_GET) && array_key_exists("Username", $
     //mysqli_close($myDbConn);
 }
 
-myvar1 = array_key_exists('Login_Success', $_GET);
-myvar2 = array_key_exists('IsAdmin', $_GET);
+$myvar1 = array_key_exists('Login_Success', $_GET);
+$myvar2 = array_key_exists('IsAdmin', $_GET);
 
 if (array_key_exists('Login_Success', $_GET) && array_key_exists('IsAdmin', $_GET)) {
     $IsAdmin = $_GET["IsAdmin"];
 
-    if (isset($_SESSION["IsAdmin"]) == 1) {
-        $admin = $_SESSION["IsAdmin"];
-        echo ('<div>' . $admin . '</div>' );
-    } else {
-        $_SESSION["IsAdmin"] = $admin;
-        echo ('<div>' . $admin . '</div>');
-    }
+    $_SESSION["IsAdmin2"] = $IsAdmin;
 }
 
 if ($myJsonResult) {
