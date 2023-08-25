@@ -2,7 +2,7 @@
 
 //constants
 DEFINE("DB_USER", "root");
-DEFINE("DB_PSWD", "admin");
+DEFINE("DB_PSWD", "password");
 DEFINE("DB_SERVER", "localhost:3306");
 DEFINE("DB_NAME", "warhammerdb");
 
@@ -26,7 +26,8 @@ function GetAll($dbConn)
         'Cost', wdb.Cost,
         'Base_Size', wdb.BaseSize,
         'Max_Size', wdb.MaxSize) as Json1
-        FROM `warhammerdb`.`unitdatasheets` as wdb;";
+        FROM `warhammerdb`.`unitdatasheets` as wdb
+        WHERE isActive is true;";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -43,7 +44,7 @@ function GetByFaction($dbConn, $faction)
         'Cost', wdb.Cost,
         'Base_Size', wdb.BaseSize,
         'Max_Size', wdb.MaxSize) as Json1
-   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Faction = '" . $faction . "';";
+   FROM `warhammerdb`.`unitdatasheets` as wdb where isActve is true and wdb.Faction = '" . $faction . "';";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -60,7 +61,7 @@ function GetByKeyword($dbConn, $keyword)
         'Cost', wdb.Cost,
         'Base_Size', wdb.BaseSize,
         'Max_Size', wdb.MaxSize) as Json1
-   FROM `warhammerdb`.`unitdatasheets` as wdb where wdb.Keywords like \"%" . $keyword . "%\";";
+   FROM `warhammerdb`.`unitdatasheets` as wdb whereisActive is true and wdb.Keywords like \"%" . $keyword . "%\";";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -87,7 +88,7 @@ function UpdateWhere($dbConn, $Unit_ID, $Unit_Name, $faction, $keyWords, $cost, 
 function DeleteWhere($dbConn, $Unit_ID)
 {
 
-    $query = "DELETE FROM `warhammerdb`.`unitdatasheets` WHERE Unit_ID = " . $Unit_ID . ";";
+    $query = "UPDATE `warhammerdb`.`unitdatasheets` SET isActive = false WHERE Unit_ID = " . $Unit_ID . ";";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -101,7 +102,8 @@ function GetAllUsers($dbConn)
         'Password', wdb.password,
         'Email', wdb.email,
         'IsAdmin', wdb.isAdmin) as Json1
-        FROM `warhammerdb`.`users` as wdb;";
+        FROM `warhammerdb`.`users` as wdb
+        where isActive is true;";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -128,7 +130,7 @@ function UpdateUserWhere($dbConn, $User_ID, $User, $Password, $Email, $isAdmin)
 function DeleteUserWhere($dbConn, $User_ID)
 {
 
-    $query = "DELETE FROM `warhammerdb`.`users` WHERE id = " . $User_ID . ";";
+    $query = "UPDATE `warhammerdb`.`users` SET isActive = false WHERE id = " . $User_ID . ";";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -146,7 +148,8 @@ function GetByUsername($dbConn, $username, $password){
         'Password', u.password,
         'Email', u.email,
         'IsAdmin', u.isAdmin) as Json1
-   FROM `warhammerdb`.`users` as u where u.username = '" . $username . "' and u.password = '" . $password . "';";
+   FROM `warhammerdb`.`users` as u where u.username = '" . $username . "' and u.password = '" . $password . "'
+    WHERE isActive is true;";
 
     return @mysqli_query($dbConn, $query);
 }
