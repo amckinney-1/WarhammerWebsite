@@ -1,4 +1,4 @@
-<a href="Index.php">Home</a> &nbsp; &nbsp;<a href="ViewDatabase.php">View Database</a> &nbsp; &nbsp;<a href="Contact.php">Meet The Team</a>
+<a href="Index.php">Home</a> &nbsp; &nbsp;<a href="ViewDatabase.php">View Database</a> &nbsp; &nbsp;<a href="Contact.php">Meet The Team</a> &nbsp; &nbsp;<a href="RosterBuilder.php">Roster Builder</a>
 <?php
 //Displays the ManagePages if the user is an admin
 if (isset($_COOKIE["Login"]) == true) {

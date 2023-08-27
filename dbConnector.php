@@ -44,7 +44,7 @@ function GetByFaction($dbConn, $faction)
         'Cost', wdb.Cost,
         'Base_Size', wdb.BaseSize,
         'Max_Size', wdb.MaxSize) as Json1
-   FROM `warhammerdb`.`unitdatasheets` as wdb where isActve is true and wdb.Faction = '" . $faction . "';";
+   FROM `warhammerdb`.`unitdatasheets` as wdb where isActive is true and wdb.Faction = '" . $faction . "';";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -61,7 +61,24 @@ function GetByKeyword($dbConn, $keyword)
         'Cost', wdb.Cost,
         'Base_Size', wdb.BaseSize,
         'Max_Size', wdb.MaxSize) as Json1
-   FROM `warhammerdb`.`unitdatasheets` as wdb whereisActive is true and wdb.Keywords like \"%" . $keyword . "%\";";
+   FROM `warhammerdb`.`unitdatasheets` as wdb where isActive is true and wdb.Keywords like \"%" . $keyword . "%\";";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+//Searches using an ID
+function GetByID($dbConn, $id)
+{
+
+    $query = "SELECT JSON_OBJECT(
+        'Unit_ID', wdb.Unit_ID,
+        'Unit_Name', wdb.UName,
+        'Faction', wdb.Faction,
+        'Key_Words', wdb.KeyWords,
+        'Cost', wdb.Cost,
+        'Base_Size', wdb.BaseSize,
+        'Max_Size', wdb.MaxSize) as Json1
+   FROM `warhammerdb`.`unitdatasheets` as wdb where isActive is true and wdb.Unit_ID = " . $id . ";";
 
     return @mysqli_query($dbConn, $query);
 }
@@ -137,7 +154,7 @@ function DeleteUserWhere($dbConn, $User_ID)
 
 function CheckLogin($dbConn)
 {
-    
+
 }
 
 //Gets a User determined by a username and password
@@ -148,8 +165,8 @@ function GetByUsername($dbConn, $username, $password){
         'Password', u.password,
         'Email', u.email,
         'IsAdmin', u.isAdmin) as Json1
-   FROM `warhammerdb`.`users` as u where u.username = '" . $username . "' and u.password = '" . $password . "'
-    WHERE isActive is true;";
+   FROM `warhammerdb`.`users` as u where u.username = '" . $username . "' and u.password = '" . $password . "'";
+    //"WHERE isActive is true;";
 
     return @mysqli_query($dbConn, $query);
 }

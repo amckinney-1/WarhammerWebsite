@@ -68,6 +68,15 @@ if (array_key_exists("Keyword_Search", $_GET) == TRUE) {
     $myJsonResult = GetByKeyword($myDbConn, $myGet);
 }
 
+//Queries the ID search
+if (array_key_exists("ID_Search", $_GET) == TRUE) {
+    // Get the db connection
+    // Get the data
+    $myGet = $_GET["ID_Search"];
+    // Get the records
+    $myJsonResult = GetByID($myDbConn, $myGet);
+}
+
 //Queries a username search for the login page
 if (array_key_exists("Username_Search", $_GET) && array_key_exists("Username", $_GET) && array_key_exists("Password", $_GET)) {
     $username = $_GET["Username"];
