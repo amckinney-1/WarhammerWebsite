@@ -12,16 +12,21 @@ include_once "Header.php";
 
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'apiQuery.php');
+    request.open('GET', 'apiQuery.php?Get_All=TRUE');
     request.onload = loadComplete;
     request.send();
 
     function myClickEvent() {
         //Loads JSON on button click
         loadJson(document.getElementById("ID").value);
+
+        // trying to add id to a list/array
     }
 
     function loadJson(id) {
+        const idArray = [];
+        idArray.push(id);
+        
         request.open('GET', 'apiQuery.php?ID_Search=' + id);
         request.onload = loadComplete;
         request.send();
