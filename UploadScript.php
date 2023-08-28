@@ -24,4 +24,6 @@ if (isset($_POST["submit"])) {
         }
     }
 }
+
+include_once 'imageUpload.php';
 ?>
