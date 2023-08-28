@@ -2,7 +2,7 @@
 
 //constants
 DEFINE("DB_USER", "root");
-DEFINE("DB_PSWD", "password");
+DEFINE("DB_PSWD", "admin");
 DEFINE("DB_SERVER", "localhost:3306");
 DEFINE("DB_NAME", "warhammerdb");
 
@@ -170,5 +170,30 @@ function GetByUsername($dbConn, $username, $password){
 
     return @mysqli_query($dbConn, $query);
 }
+
+function UploadImage($dbConn, $fileName, $dsID){
+    $query = "INSERT INTO warhammerdb.images (filename, dataSheetID) VALUES ('" . $fileName . "', " . $dsID . ");";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function GetImageByID($dbConn, $dsID){
+    $query = "SELECT JSON_OBJECT(
+        'filename', wdb.filename,
+        'datasheetID', wdb.dataSheetID) as Json1
+   FROM `warhammerdb`.`images` as wdb WHERE wdb.dataSheetID = '" . $dsID . "';";
+
+    return @mysqli_query($dbConn, $query);
+}
+
+function GetAllImages($dbConn){
+    $query = "SELECT JSON_OBJECT(
+        'filename', wdb.filename,
+        'datasheetID', wdb.dataSheetID) as Json1
+        FROM `warhammerdb`.`images` as wdb;";
+
+    return @mysqli_query($dbConn, $query);
+}
+
 
 ?>

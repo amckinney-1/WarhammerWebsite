@@ -9,4 +9,6 @@ include_once "Header.php";
 <a href="CreateUser.php">Create_User</a>&nbsp; &nbsp;
 <a href="UpdateUser.php">Update_User</a>&nbsp; &nbsp;
 <a href="DeleteUser.php">Delete_User</a>&nbsp; &nbsp;
-<a href="GetAllUsers.php">See_All_Users</a>
+<a href="GetAllUsers.php">See_All_Users</a>&nbsp; &nbsp;
+<br/>
+<a href="imageUpload.php">Add_Image_To_DataSheet</a>

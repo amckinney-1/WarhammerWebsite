@@ -8,4 +8,7 @@
     <SpecificPageValue>LoginPage.php</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
 </Project>

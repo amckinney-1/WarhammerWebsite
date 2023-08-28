@@ -66,3 +66,51 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO users (username,password,email,isAdmin) VALUES('admin','admin','admin@email.com',true);
 INSERT INTO users (username,password,email,isAdmin) VALUES('user','user','user@email.com',false);
+
+CREATE TABLE IF NOT EXISTS images (
+    id int NOT NULL AUTO_INCREMENT primary key,
+      filename varchar(255) NOT NULL,
+      dataSheetID varchar(50) NOT NULL
+);
+
+INSERT INTO images (dataSheetID, filename) VALUES('Drazhar','Drazhar.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Archon','Archon.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Beastmaster','Beastmaster.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Corsair Voidreavers','CorsairVoidreavers.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Kabalite Warriors','KabaliteWarriors.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Corsair Voidscarred','CorsairVoidscarred.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Court of the Archon','CourtOfTheArchon.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Incubi','Incubi.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Mandrakes','Mandrakes.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Scourges','Scourges.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Ravager','Ravager.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Tantalus','Tantalus.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Raider','Raider.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Venom','Venom.jpg');
+
+INSERT INTO images (dataSheetID, filename) VALUES('Belisarius Cawl','BelisariusCawl.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Cybernetica Datasmith','CyberneticaDatasmith.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Skitarii Marshal','SkitariiMarshal.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Tech-Priest Dominus','Tech-PriestDominus.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Tech-Priest Enginseer','Tech-PriestEnginseer.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Tech-Priest Manipulus','Tech-PriestManipulus.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Technoarcheologist','Technoarcheologist.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Skitarii Rangers','SkitariiRangers.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Skitarii Vanguard','SkitariiVanguard.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Corpuscarii Electro-Priest','CorpuscariiElectro-Priest.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Fulgurite Electro-Priests','FulguriteElectro-Priests.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Kataphron Breachers','KataphronBreachers.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Kataphron Destroyers','KataphronDestroyers.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Pteraxii Skystalkers','PteraxiiSkystalkers.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Pteraxii Sterylizors','PteraxiiSterylizors.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Servitors','Servitors.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Sicarian Infiltrators','SicarianInfiltrators.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Sicarian Rustalkers','SicarianRustalkers.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Serberys Raiders','SerberysRaiders.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Serberys Sulphurhounds','SerberysSulphurhounds.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Archaeopter Fusilave','ArchaeopterFusilave.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Ironstrider Ballistarii','IronstriderBallistarii.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Kastelan Robots','KastelanRobots.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Onager Dunecrawler','OnagerDunecrawler.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Skorpius Disintegrator','SkorpiusDisintegrator.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Sydonian Dragoons','SydonianDragoons.jpg');

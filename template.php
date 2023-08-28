@@ -25,3 +25,23 @@ if (array_key_exists("Max_Size", $_GET) == TRUE) {
 
 include_once "Footer.php";
 ?>
+<p id="jsonData"></p>
+<script>
+    var request = new XMLHttpRequest();
+    var name = '<?php echo $_GET["Unit_Name"] ?>';
+
+    request.open('GET', 'apiImageQuery.php?GET_ID=' + name);
+    request.onload=loadComplete;
+    request.send();
+
+    function loadComplete(){
+        var myResponse = request.responseText;
+        var myData = JSON.parse(myResponse);
+
+        var myReturn = "<img src=\"Uploads/" + myData[0].filename + "\" alt=\"\" />"
+
+        document.getElementById("jsonData").innerHTML = myReturn;
+    }
+    
+    
+</script>
