@@ -54,6 +54,10 @@ include_once "dbConnector.php";
       
 
     </script>
+
+    <br />
+    <br />
+    <br />
     <?php
 
 
@@ -81,4 +85,3 @@ include_once "dbConnector.php";
     }
     include "Footer.php";
     ?>
-?>
