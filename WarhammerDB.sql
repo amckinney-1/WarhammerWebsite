@@ -37,7 +37,7 @@ INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Technoarcheologist','Adeptus Mechanicus','Technoarcheologist, Imperium, Tech-Priest, Character, Infantry',45,1,1);
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Skitarii Rangers','Adeptus Mechanicus','Rangers, Imperium, Infantry, Skitarri, Battleline',125,10,10);
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Skitarii Vanguard','Adeptus Mechanicus','Vanguard, Imperium, Infantry, Skitarri, Battleline',100,10,10);
-INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Corpuscarii Electro-Priest','Adeptus Mechanicus','Electro-Priests, Corpuscarii, Imperium, Infantry',65,5,10);
+INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Corpuscarii Electro-Priests','Adeptus Mechanicus','Electro-Priests, Corpuscarii, Imperium, Infantry',65,5,10);
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Fulgurite Electro-Priests','Adeptus Mechanicus','Electro-Priests, Fulgurite, Infantry, Imperium',80,5,10);
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Kataphron Breachers','Adeptus Mechanicus','Breachers, Kataphron, Infantry, Imperium',150,3,6);
 INSERT INTO UnitDatasheets (UName,Faction,KeyWords,Cost,BaseSize,MaxSize) VALUES('Kataphron Destroyers','Adeptus Mechanicus','Destroyers, Kataphron, Infantry, Imperium',130,3,6);
@@ -97,7 +97,7 @@ INSERT INTO images (dataSheetID, filename) VALUES('Tech-Priest Manipulus','Tech-
 INSERT INTO images (dataSheetID, filename) VALUES('Technoarcheologist','Technoarcheologist.jpg');
 INSERT INTO images (dataSheetID, filename) VALUES('Skitarii Rangers','SkitariiRangers.jpg');
 INSERT INTO images (dataSheetID, filename) VALUES('Skitarii Vanguard','SkitariiVanguard.jpg');
-INSERT INTO images (dataSheetID, filename) VALUES('Corpuscarii Electro-Priest','CorpuscariiElectro-Priest.jpg');
+INSERT INTO images (dataSheetID, filename) VALUES('Corpuscarii Electro-Priests','CorpuscariiElectro-Priests.jpg');
 INSERT INTO images (dataSheetID, filename) VALUES('Fulgurite Electro-Priests','FulguriteElectro-Priests.jpg');
 INSERT INTO images (dataSheetID, filename) VALUES('Kataphron Breachers','KataphronBreachers.jpg');
 INSERT INTO images (dataSheetID, filename) VALUES('Kataphron Destroyers','KataphronDestroyers.jpg');
